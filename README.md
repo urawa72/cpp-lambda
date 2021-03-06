@@ -1,4 +1,4 @@
-# cpp__lambda
+# cpp_lambda
 
 ## Build image
 

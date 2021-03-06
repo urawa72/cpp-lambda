@@ -1,6 +1,7 @@
 #include <aws/lambda-runtime/runtime.h>
 #include <aws/core/utils/json/JsonSerializer.h>
 #include <aws/core/utils/memory/stl/SimpleStringStream.h>
+#include <aws/core/utils/memory/stl/AWSString.h>
 
 using namespace aws::lambda_runtime;
 
@@ -9,7 +10,7 @@ invocation_response my_handler(invocation_request const& request)
 
     using namespace Aws::Utils::Json;
 
-    JsonValue json(request.payload);
+    JsonValue json((Aws::String)request.payload);
     if (!json.WasParseSuccessful()) {
         return invocation_response::failure("Failed to parse input JSON", "InvalidJSON");
     }
@@ -51,7 +52,7 @@ invocation_response my_handler(invocation_request const& request)
     JsonValue resp;
     resp.WithString("message", ss.str());
 
-    return invocation_response::success(resp.View().WriteCompact(), "application/json");
+    return invocation_response::success((std::string)resp.View().WriteCompact(), "application/json");
 }
 
 int main()

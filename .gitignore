@@ -1,2 +1,4 @@
 /**/build
 *.zip
+aws-sdk-cpp
+install

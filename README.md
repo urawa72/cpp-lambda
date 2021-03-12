@@ -35,7 +35,6 @@ cd dynamodb_test
 mkdir build
 cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release \
-  -DBUILD_SHARED_LIBS=ON \
   -DCMAKE_INSTALL_PREFIX=/path/to/sdk-install-dir \
   -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 make

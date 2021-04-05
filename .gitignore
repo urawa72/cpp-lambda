@@ -2,3 +2,4 @@
 *.zip
 aws-sdk-cpp
 install
+/**/.cache
